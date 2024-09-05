@@ -968,7 +968,8 @@ class NfcManager extends ReactContextBaseJavaModule implements ActivityEventList
                 return;
             }
 
-            currentActivity.registerReceiver(mReceiver, filter);
+            CompatReceviceHelp.compatRegisterReceiver(currentActivity,mReceiver,filter,false);
+            //currentActivity.registerReceiver(mReceiver, filter);
             Intent launchIntent = currentActivity.getIntent();
             // we consider the launching intent to be background
             bgTag = parseNfcIntent(launchIntent);
